@@ -1,25 +1,32 @@
 class Ninja:
-    def __init__(self, first_name, last_name, treats, pet_food):
+    def __init__(self, first_name, last_name, pet, treats, pet_food):
         self.first_name = first_name
         self.last_name = last_name
+        self.pet = Pet("Mr. Snuggles", "Dog", "Roll over")
         self.treats = treats
         self.pet_food = pet_food
-        self.pet = Pet("Mr. Snuggles", "Dog", "Roll over")
 
     def walk(self):
-        print(f"You are now playing with {self.pet}")
+        print(f"You are now playing with {self.pet.name}")
         self.pet.play()
+        return self
 
     def feed(self):
-        print(f"You are now feeding {self.pet} with {self.pet_food}")
+        print(f"You are now feeding {self.pet.name} with {self.pet_food}")
         self.pet.eat()
+        return self
 
     def bathe(self):
-        print(f"You have bathed {self.pet}")
+        print(f"You have bathed {self.pet.name}")
         self.pet.noise()
+        return self
+
+    def nap(self):
+        print(f"You and {self.pet.name} have slept")
+        self.pet.sleep()
 
     def display_info(self):
-        print(f"{self.first_name}, {self.last_name}, {self.treats}, {self.pet_food}")
+        print(f"Name: {self.first_name} {self.last_name}, Pet: {self.pet.name}, Treats: {self.treats}, Pet Food: {self.pet_food}")
 
 class Pet:
     def __init__(self, name, type, tricks):
@@ -31,18 +38,18 @@ class Pet:
 
     def sleep(self):
         self.energy = self.energy + 25
-        print(f"Energy: {self.energy}")
+        print(f"Mr. Snuggles Energy: {self.energy}")
         return self
 
     def eat(self):
         self.energy = self.energy + 5
         self.health = self.health + 10
-        print(f"Energy: {self.energy}, Health: {self.health}")
+        print(f"Mr. Snuggles Energy: {self.energy}, Health: {self.health}")
         return self
 
     def play(self):
         self.health = self.health + 5
-        print(f"Health: {self.health}")
+        print(f"Mr. Snuggles Health: {self.health}")
         return self
 
     def noise(self):
@@ -58,9 +65,11 @@ class Pet:
         print(f"{self.name}, {self.type}, {self.tricks}")
 
 
-matthew = Ninja("Matthew", "Luk", "Sandwich", "Pet food")
+matthew = Ninja("Matthew", "Luk", "Mr.Snuggles", "Sandwich", "Pet food")
+
 
 matthew.display_info()
+matthew.nap()
 matthew.feed()
 matthew.walk()
 matthew.bathe()
