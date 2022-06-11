@@ -3,9 +3,12 @@ class Store:
         self.name = name
         self.list = list
 
-    def add_product(self, new_product):
+    def add_product(self, new_product, price, category):
         self.new_product = new_product
+        self.price = price
+        self.category = category
         self.list.append(new_product)
+        return self
 
     def sell_product(self, id):
         pass
@@ -20,11 +23,11 @@ class Store:
         print(f"Store name: {self.name}, Items: {self.new_product.name}")
 
 class Product:
-    products = []
     def __init__(self, name, price, category):
         self.name = name
         self.price = price
         self.category = category
+        storage.append(self.name)
 
     def update_price(self, percent_change, is_increased):
         if is_increased == True:
@@ -39,8 +42,8 @@ storage = []
 
 target = Store("Target", storage)
 tp = Product("toilet paper", 2.99, "cleaning")
-water = Product("water", 3.99, "consumable")
-target.add_product(water)
-target.add_product(tp)
-water.print_info()
-target.print_store()
+target.add_product("water",3.99,"consumable").add_product("monopoly",19.99,"toys").add_product("salami",4.99,"consumable")
+target.add_product("bleach", 6.99,"cleaning").add_product("mr.potato head",9.99,"toys").add_product("cheese",3.99,"consumables")
+print(storage)
+tp.update_price(0.10,True)
+print(tp.print_info)
