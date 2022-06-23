@@ -1,0 +1,2 @@
+For this assignment we had to create an ERD to represent the database for an application that tracks dojos, as well as the ninjas that belong to each dojo location.
+Each dojo should have an id, name, created_at and updated_at; each ninja should have an id, first_name, last_name, age, created_at, updated_at and belong to a specific dojo. Use the MySQL Workbench for creating this diagram.
