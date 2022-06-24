@@ -1,0 +1,2 @@
+For this assignment we had to create an ERD to represent the database for an application that tracks users, books, and user's favorite books.
+Each book should have an id, title, and each user should be able to save their favorite books. Use the MySQL Workbench for creating this database.
