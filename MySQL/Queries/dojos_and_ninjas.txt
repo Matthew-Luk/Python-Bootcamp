@@ -1,0 +1,32 @@
+INSERT INTO dojos(name)
+VALUES("San Francisco"),("Seattle"),("Los Angeles");
+
+DELETE FROM dojos
+WHERE id > 0;
+
+INSERT INTO dojos(name)
+VALUES("San Jose"),("Portland"),("San Diego");
+
+INSERT INTO ninjas(first_name,last_name,age,dojo_id)
+VALUES("Matthew","Luk",26,28),
+("Abby","Saeturn",24,28),
+("Kobe","Bryant",40,28);
+
+INSERT INTO ninjas(first_name,last_name,age,dojo_id)
+VALUES("Alvin","Luk",28,29),
+("John","Smith",32,29),
+("LeBron","James",37,29);
+
+INSERT INTO ninjas(first_name,last_name,age,dojo_id)
+VALUES("Kevin","Durant",33,30),
+("Kyrie","Irving",30,30),
+("Jayson","Tatum",24,30);
+
+SELECT * FROM ninjas
+WHERE dojo_id = 28;
+
+SELECT * FROM ninjas
+WHERE dojo_id = 30;
+
+SELECT * FROM dojos
+WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1);
