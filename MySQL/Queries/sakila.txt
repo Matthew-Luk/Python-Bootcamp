@@ -1,0 +1,26 @@
+USE sakila;
+
+SELECT customer.first_name, customer.last_name, customer.email, address, city, country FROM customer
+JOIN address ON customer.address_id = address.address_id
+JOIN city ON address.city_id = city.city_id
+JOIN country ON city.country_id = country.country_id
+WHERE city.city_id = 312;
+
+SELECT film.film_id, title, description, release_year, rating, special_features, category.name as genre FROM film
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON film_category.category_id = category.category_id
+WHERE category.name = "Comedy";
+
+SELECT actor.actor_id, CONCAT(first_name," ", last_name) as name, film.title, description, release_year FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE actor.actor_id = 5;
+
+SELECT store.store_id, city.city_id, first_name, last_name, email, address FROM store
+JOIN customer ON customer.store_id = store.store_id
+JOIN address ON customer.address_id = address.address_id
+JOIN city ON address.city_id = city.city_id
+WHERE store.store_id = 1 and city.city_id = 1 or 
+store.store_id = 1 and city.city_id = 42 or
+store.store_id = 1 and city.city_id = 312 or
+store.store_id = 1 and city.city_id = 459;
