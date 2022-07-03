@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Checkerboard</title>
+</head>
+<body>
+
+
+    <!-- http://localhost:5000 - should display 8 by 8 checkerboard -->
+    <table>
+        <tr>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+        </tr>
+        <tr>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+        </tr>
+        <tr>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+        </tr>
+        <tr>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+        </tr>
+        <tr>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+        </tr>
+        <tr>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+        </tr>
+        <tr>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+        </tr>
+        <tr>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+            <td class="color2"></td>
+            <td class="color1"></td>
+        </tr>
+    </table>
+
+
+    <!-- http://localhost:5000/4 - should display 8 by 4 checkerboard -->
+    <table>
+        {%for i in range(9)%}
+        <tr>
+            {%for j in range(8)%}
+            <td class="color{{(i+j)%2+1}}"></td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+
+
+    <!-- http://localhost:5000/(x)/(y) - should display x by y checkerboard -->
+    <table>
+        {%for i in range(row)%}
+        <tr>
+            {%for j in range(col)%}
+            <td class="color{{(i+j)%2+1}}"></td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>
