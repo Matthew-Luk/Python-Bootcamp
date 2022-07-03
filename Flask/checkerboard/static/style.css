@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+
+.color1{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+.color2{
+    width: 50px;
+    height: 50px;
+    background-color: black
+}
