@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.counter, .count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: xx-large;
+    padding-top: 100px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    width: 50px;
+    padding-left: 725px;
+}
+
+.btn{
+    background-color: green;
+    color: black;
+}
+
+.reset{
+    background-color: red;
+    color: black;
+}
