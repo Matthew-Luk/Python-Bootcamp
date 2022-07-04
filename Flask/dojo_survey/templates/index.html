@@ -18,25 +18,29 @@
                 <input name="name"type="text" class="form-control" id="inputEmail4" placeholder="Name...">
             </div>
             <div class="form-group col-md-6">
-                <label for="location">Dojo Location:</label>
-                <select class="form-group col-md-6" name="location" id="location">
-                    <option value="select">-- Select a Location --</option>
-                    <option value="San Francisco">San Francisco</option>
-                    <option value="Seattle">Seattle</option>
-                    <option value="Chicago">Chicago</option>
-                    <option value="New York">New York</option>
-                </select>
+                <p>Dojo Location:</p>
+                <input type="checkbox" id="sf" name="location" value="San Francisco">
+                <label for="html">San Francisco</label><br>
+                <input type="checkbox" id="seattle" name="location" value="Seattle">
+                <label for="html">Seattle</label><br>
+                <input type="checkbox" id="chicago" name="location" value="Chicago">
+                <label for="html">Chicago</label><br>
+                <input type="checkbox" id="ny" name="location" value="New York">
+                <label for="html">New York</label><br>
             </div>
             <div class="form-group col-md-6">
-                <label for="language">Favorite Language:</label>
-                <select class="form-group col-md-6" name="language" id="language">
-                    <option value="select">-- Select a Language --</option>
-                    <option value="HTML">HTML</option>
-                    <option value="CSS">CSS</option>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="Python">Python</option>
-                    <option value="C#">C#</option>
-                </select>
+                <p>Favorite Language:</p>
+                <input type="radio" id="html" name="language" value="HTML">
+                <label for="html">HTML</label><br>
+                <input type="radio" id="css" name="language" value="CSS">
+                <label for="html">CSS</label><br>
+                <input type="radio" id="js" name="language" value="JavaScript">
+                <label for="html">JavaScript</label><br>
+                <input type="radio" id="python" name="language" value="Python">
+                <label for="html">Python</label><br>
+                <input type="radio" id="c#" name="language" value="C#">
+                <label for="html">C#</label><br>
+
             </div>
             <div class="form-group col-md-6">
                 <label for="inputZip">Comment (Optional):</label>
