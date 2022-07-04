@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Survey</title>
+</head>
+<body>
+    <form action="/process" method = "post">
+        <div class="d-flex align-items-center flex-column">
+            <div class="form-group col-md-6">
+                <h1>Dojo Survey</h1>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="name">Your Name:</label>
+                <input name="name"type="text" class="form-control" id="inputEmail4" placeholder="Name...">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="location">Dojo Location:</label>
+                <select class="form-group col-md-6" name="location" id="location">
+                    <option value="select">-- Select a Location --</option>
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="New York">New York</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="language">Favorite Language:</label>
+                <select class="form-group col-md-6" name="language" id="language">
+                    <option value="select">-- Select a Language --</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputZip">Comment (Optional):</label>
+                <input name="comment" type="text" class="form-control" id="inputZip" placeholder="Comments...">
+            </div>
+            <a href="/process"><button type="submit" class="btn btn-primary">Submit</button></a>
+        </div>
+    </form>
+</body>
+</html>
