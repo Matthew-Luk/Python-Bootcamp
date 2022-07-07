@@ -1,0 +1,15 @@
+NameError: name 'connectio' is not defined
+NameError: name 'self' is not defined
+TypeError: Connection.__init__() got an unexpected keyword argument 'pasword'
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'locahost' ([Errno 61] Connection refused)")
+AttributeError: 'NoneType' object has no attribute 'encoding'
+TypeError: 'bool' object is not iterable
+TypeError: 'bool' object is not iterable
+AttributeError: 'MySQLConnection' object has no attribute 'query_db'
+TypeError: 'NoneType' object is not iterable
+NameError: name 'pymysq' is not defined
+AttributeError: module 'pymysql' has no attribute 'cursrs'
+AttributeError: module 'pymysql.cursors' has no attribute 'DCursor'
