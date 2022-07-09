@@ -1,0 +1,24 @@
+* {
+    margin: 0px;
+    padding:  0px;
+}
+
+.container {
+    display: flex;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.left {
+    flex: 1;
+}
+
+.right {
+    flex: 2;
+}
+
+.box {
+    border: 2px solid black;
+    height: 500px;
+    width: 300px;
+}
