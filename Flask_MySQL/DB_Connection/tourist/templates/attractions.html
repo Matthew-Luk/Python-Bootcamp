@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractions</title>
+</head>
+<body>
+    <h1>Welcome, {{session['name']}}!</h1>
+    <h2>Enter a tourist attraction:</h2>
+    <form action="/attractions/add", method="POST">
+        <div>
+            <label for="attraction">Attraction:</label>
+            <input type="text" name="attraction">
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" name="city">
+        </div>
+        <input type="submit" value="Enter">
+    </form>
+    <h2>Tourist attraction entered:</h2>
+    <table>
+        {%for i in all_tourists%}
+            <p>{{i.attraction}} in {{i.city}}</p>
+        {%endfor%}
+    </table>
+    <a href="/attractions/destroy">Reset</a>
+    <a href="/">Exit</a>
+</body>
+</html>
