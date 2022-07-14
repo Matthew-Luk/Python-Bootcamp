@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="content2">
+            {%with messages = get_flashed_messages()%}
+                {%if messages%}
+                <h2>FLASH!!</h2>
+                    {%for message in messages%}
+                        <p>{{message}}</p>
+                    {%endfor%}
+                {%endif%}
+            {%endwith%}
+            <h1>The email address you entered was valid! Thank you!</h1>
+            <h2>Emails entered:</h2>
+            <div>
+                {%for i in emails%}
+                <p>{{i.email_address}} {{i.created_at}} <a href="/success/delete/{{i.id}}">Delete</a></p>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
