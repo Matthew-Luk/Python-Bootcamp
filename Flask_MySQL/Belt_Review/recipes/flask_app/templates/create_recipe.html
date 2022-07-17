@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Recipe</title>
+</head>
+<body>
+    <h1>Add a New Recipe</h1>
+    <a href="/dashboard">Back to Recipes</a>
+    <a href="/logout">Logout</a>
+    {%with messages = get_flashed_messages(category_filter=["create_recipe"])%}
+        {%if messages%}
+            {%for message in messages%}
+                <p>{{message}}</p>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <form action="/dashboard/create_recipe/add" method = "POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea type="textarea" name="description"></textarea>
+        </div>
+        <div>
+            <label for="instruction">Instruction:</label>
+            <textarea type="textarea" name="instruction"></textarea>
+        </div>
+        <div>
+            <label for="date_cooked">Date Cooked/Made:</label>
+            <input type="date" name="date_cooked">
+        </div>
+        <label for="under">Under 30 minutes?</label>
+        <div>
+            <label for="yes">Yes:</label>
+            <input type="checkbox" name="under" value="Yes">
+            <label for="no">No:</label>
+            <input type="checkbox" name="under" value="No">
+        </div>
+        <input type="submit" name="Submit">
+    </form>
+</body>
+</html>
