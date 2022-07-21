@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    margin: 30px;
+    width: 90%;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
+
+.hright{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hright a{
+    margin-left: 100px;
+}
+
+#btn1 {
+    width: 75px;
+    background-color: blue;
+    color: white;
+}
+
+.post{
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.posted_message{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.message{
+    margin-left: 40px;
+    margin-top: 10px;
+    display: flex;
+}
