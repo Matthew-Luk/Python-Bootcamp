@@ -27,17 +27,33 @@ class Post:
 
     @classmethod
     def delete(cls,data):
-        query = "DELETE FROM posts WHERE posts.id = %(id)s;"
+        query = "DELETE FROM posts WHERE id = %(id)s;"
         return connectToMySQL(cls.db).query_db(query,data)
 
     @classmethod
     def posts_with_user(cls):
-        query = "SELECT * FROM users JOIN posts ON users.id = user_id ORDER BY posts.created_at DESC;"
+        query = "SELECT *, posts.id as post_id FROM users JOIN posts ON user_id = users.id ORDER BY posts.created_at DESC;"
         results = connectToMySQL(cls.db).query_db(query)
         all_posts = []
         for row in results:
+            user_info = {
+                "id" : row["user_id"],
+                "first_name" : row["first_name"],
+                "last_name" : row["last_name"],
+                "email" : row["email"],
+                "password" : row["password"],
+                "created_at" : row["created_at"],
+                "updated_at" : row["updated_at"]
+            }
+            post_info = {
+                "id": row["post_id"],
+                "content": row["content"],
+                "created_at" : row["created_at"],
+                "updated_at" : row["updated_at"],
+                "user_id" : row["user_id"]
+            }
             print(row)
-            all_posts.append((User(row),cls(row)))
+            all_posts.append((User(user_info),cls(post_info)))
         return all_posts
 
     @staticmethod
