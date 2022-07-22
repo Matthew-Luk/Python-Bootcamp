@@ -47,6 +47,11 @@
                     </div>
                     <div class="message">
                         <p>{{i[1].content}}&nbsp;</p>
+                        {%print(session_id)%}
+                        {%print(i[0].id)%}
+                        {%print(i[1].id)%}
+                        <!-- i[0] == user -->
+                        <!-- i[1] == post -->
                         {%if session_id == i[0].id%}
                         <a href="/delete/{{i[1].id}}"> Delete</a>
                         {%endif%}
