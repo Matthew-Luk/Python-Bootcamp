@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Github</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button onclick="dosomething()" class="button">Click to Git User</button>
+    <p id="demo"></p>
+    <img id="demo1" src="" alt="">
+    <script>
+        function dosomething(){
+            getCoderData().then(
+            function(value) {document.getElementById("demo").innerHTML = value["name"];},
+            function(error) {document.getElementById("demo").innerHTML = error;})
+            getCoderData().then(
+            function(value) {document.getElementById("demo1").src = value["avatar_url"];},
+            function(error) {document.getElementById("demo1").innerHTML = error;})
+        }
+    </script>
+</body>
+<script src="script.js"></script>
+</html>
