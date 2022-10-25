@@ -1,4 +1,3 @@
-# For this assignment we are just predicting all of the outcomes, I did not write or claim to have written any of the code. 
 #1
 def number_of_food_groups():
     return 5
@@ -106,7 +105,7 @@ print(b)
 foobar()
 print(b)
 
-# Output predicition = 500, 500, 300, 300
+# Output predicition = 500, 500, 300, 500
 
 #12
 b = 500
@@ -120,7 +119,7 @@ print(b)
 foobar()
 print(b)
 
-# Output predicition = 500, 500, 300, 300, 500
+# Output predicition = 500, 500, 300, 500
 
 #13
 b = 500
