@@ -2,8 +2,8 @@
 print("Hello World")
 # 2. print "Hello Matthew!" with the name in a variable
 name = "Matthew"
-print("Hello","Matthew!" )	# with a comma
-print("Hello " + "Matthew!" )	# with a +
+print("Hello", name, "!")	# with a comma
+print("Hello " + name + "!")	# with a +
 # 3. print "Hello 42!" with the number in a variable
 name = 42
 print("Hello", name, "!" )	# with a comma
