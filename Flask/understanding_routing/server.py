@@ -7,15 +7,19 @@ def hello_world():
 
 @app.route('/dojo')
 def dojo():
-    return 'Dojo'
+    return 'Dojo!'
 
 @app.route('/say/<string:name>')
 def flask(name):
-    return f"Hello {name}"
+    return f"Hello {name.capitalize()}!"
 
 @app.route('/repeat/<int:num>/<string:word>')
 def repeat(num, word):
-    return (word*num)
+    return f"<p>{word}<p>"*num
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return "Sorry! No response. Try again."
 
 if __name__=="__main__":
     app.run(debug=True)
