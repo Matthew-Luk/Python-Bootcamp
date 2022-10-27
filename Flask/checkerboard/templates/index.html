@@ -8,111 +8,19 @@
     <title>Checkerboard</title>
 </head>
 <body>
-
-
-    <!-- http://localhost:5000 - should display 8 by 8 checkerboard -->
-    <table>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-        </tr>
-    </table>
-
-
-    <!-- http://localhost:5000/4 - should display 8 by 4 checkerboard -->
-    <table>
-        {%for i in range(9)%}
-        <tr>
-            {%for j in range(8)%}
-            <td class="color{{(i+j)%2+1}}"></td>
-            {%endfor%}
-        </tr>
-        {%endfor%}
-    </table>
-
-
-    <!-- http://localhost:5000/(x)/(y) - should display x by y checkerboard -->
     <table>
         {%for i in range(row)%}
         <tr>
             {%for j in range(col)%}
-            <td class="color{{(i+j)%2+1}}"></td>
+                {%if ((i+j)%2+1 == 1)%}
+                <td style="width: 50px;
+                height: 50px;
+                background-color: {{color1}};"></td>
+                {%elif ((i+j)%2+1 == 2)%}
+                <td style="width: 50px;
+                height: 50px;
+                background-color: {{color2}};"></td>
+                {%endif%}
             {%endfor%}
         </tr>
         {%endfor%}
