@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, session
+from flask import Flask, render_template, redirect, session, request
 
 app = Flask(__name__)
 app.secret_key = "matthew1"
@@ -13,8 +13,17 @@ def hello_world():
 
 @app.route('/add')
 def add():
-    session["count"] = session["count"] +1
+    session["count"] = session["count"] + 1
     return redirect('/')
+
+@app.route('/add_increment', methods=["POST"])
+def add_increment():
+    try:
+        session["count"] = session["count"] + (int(request.form["number"])-1)
+        return redirect('/')
+    except ValueError:
+        session["count"] = session["count"] - 1
+        return redirect('/')
 
 @app.route('/destroy_session')
 def reset():
