@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Great Number Game</title>
+</head>
+<body>
+    <h1>{{number}}</h1>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to the Great Number Game!</h1>
+        </div>
+        <div class="explanation">
+            <div>
+                <p>I am thinking of a number between 1 and 100</p>
+            </div>
+            <div>
+                <p>Take a guess!</p>
+            </div>
+            <div>
+                <p>Attempts: {{attempts}}</p>
+            </div>
+        </div>
+        {%if 'guess' in session%}
+            {%if session['attempts'] != 5%}
+                {%if session['guess'] == session['number']%}
+                <div class="correct">
+                    <p>{{correct_number}} was the number!</p>
+                    <button id="play_again"><a href="/reset">Play Again!</a></button>
+                </div>
+                {%elif session['guess'] < session['number']%}
+                <div class="low">
+                    <p>Too Low!</p>
+                </div>
+                {%else%}
+                <div class="high">
+                    <p>Too High!</p>
+                </div>
+                {%endif%}
+            {%elif session['attempts'] == 5%}
+                <div class="lose">
+                    <p>You Lose!</p>
+                    <button id="play_again"><a href="/reset">Play Again!</a></button>
+                </div>
+            {%endif%}
+        {%endif%}
+        <form action="/guess" method="POST">
+            <input type="number" name="guess">
+            <button id="submit_btn" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
