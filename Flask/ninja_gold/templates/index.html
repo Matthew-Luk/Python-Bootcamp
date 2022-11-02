@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+<body>
+    <div class="container">
+        <div class="gold">
+            <div class="gold_left">
+                <h2>Your Gold: </h2>
+                <input id="gold_container" type="text" value="{{gold}}">
+            </div>
+            <div class="gold_right">
+                <a href="/reset"><button id="reset_btn">Reset</button></a>
+            </div>
+        </div>
+        <div class="forms">
+            <form action="/process_money" method="post">
+                <label for="farm">Farm</label>
+                <p>(earns 10-20 golds)</p>
+                <input type="hidden" name="building" value="farm" />
+                <input class="btn" type="submit" value="Find Gold!"/>
+            </form>
+            <form action="/process_money" method="post">
+                <label for="cave">Cave</label>
+                <p>(earns 5-10 golds)</p>
+                <input type="hidden" name="building" value="cave" />
+                <input class="btn" type="submit" value="Find Gold!"/>
+            </form>
+            <form action="/process_money" method="post">
+                <label for="house">House</label>
+                <p>(earns 2-5 golds)</p>
+                <input type="hidden" name="building" value="house" />
+                <input class="btn" type="submit" value="Find Gold!"/>
+            </form>
+            <form action="/process_money" method="post">
+                <label for="casino">Casino</label>
+                <p>(earns/takes 0-50 golds)</p>
+                <input type="hidden" name="building" value="casino" />
+                <input class="btn" type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class="activities">
+            <div>
+                <p>Activities:</p>
+            </div>
+            <div class="activity_box">
+                {%if 'activities_list' in session%}
+                    {%for i in activities%}
+                        <p>{{i}}</p>
+                    {%endfor%}
+                {%endif%}
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
