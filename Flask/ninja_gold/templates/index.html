@@ -16,7 +16,9 @@
                 <input id="gold_container" type="text" value="{{gold}}">
             </div>
             <div class="gold_right">
-                <a href="/reset"><button id="reset_btn">Reset</button></a>
+                {%if attempts > 20%}
+                    <a href="/reset"><button id="reset_btn">Reset</button></a>
+                {%endif%}
             </div>
         </div>
         <div class="forms">
@@ -46,18 +48,21 @@
             </form>
         </div>
         <div class="activities">
-            <div>
+            <div class="activities_header">
                 <p>Activities:</p>
             </div>
             <div class="activity_box">
                 {%if 'activities_list' in session%}
-                    {%for i in activities%}
-                        <p>{{i}}</p>
+                    {%for i in activities[::-1]%}
+                        {%if i.count("lost") == 1%}
+                        <p class="red">{{i}}</p>
+                        {%else%}
+                        <p class="green">{{i}}</p>
+                        {%endif%}
                     {%endfor%}
                 {%endif%}
             </div>
         </div>
-
     </div>
 </body>
 </html>
