@@ -1,0 +1,44 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.container{
+    margin-top: 20px;
+}
+
+.btn-group{
+    display: flex;
+    align-items: flex-end;
+}
+
+#btn{
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00894e;
+    color: white;
+}
+
+#show_user{
+    margin-left: 30px;
+}
+
+.show_one_content{
+    margin: 5px 0px 20px 0px;
+    border: 1px solid gray;
+    height: 300px;
+    border-radius: 5px;
+    padding: 15px 0px 0px 10px;
+}
+
+.show_one_content p{
+    margin-bottom: 20px;
+}
