@@ -30,6 +30,11 @@ class Dojo:
         return connectToMySQL('dojos_and_ninjas').query_db( query, data )
 
     @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM dojos WHERE id = %(id)s"
+        return connectToMySQL('dojos_and_ninjas').query_db( query, data )
+
+    @classmethod
     def get_one_with_ninjas(cls,data):
         query = "SELECT * FROM dojos LEFT JOIN ninjas on dojos.id = dojo_id WHERE dojos.id = %(id)s;"
         results = connectToMySQL('dojos_and_ninjas').query_db(query,data)
