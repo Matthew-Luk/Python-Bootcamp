@@ -26,3 +26,11 @@ def show(id):
         "id":id
     }
     return render_template("show.html",dojo = Dojo.get_one_with_ninjas(data))
+
+@app.route("/delete/<int:id>")
+def delete(id):
+    data = {
+        "id":id
+    }
+    Dojo.delete(data)
+    return redirect("/")
