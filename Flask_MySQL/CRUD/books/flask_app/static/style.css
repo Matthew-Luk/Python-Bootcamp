@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    margin-top: 25px;
+    display: flex;
+}
+
+.left{
+    flex: 1;
+}
+
+.right{
+    flex: 1;
+}
+
+.right_content{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 15px;
+}
+
