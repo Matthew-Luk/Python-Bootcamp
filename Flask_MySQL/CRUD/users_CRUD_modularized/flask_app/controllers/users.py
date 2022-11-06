@@ -39,7 +39,7 @@ def delete(id):
     data ={
         "id":id
     }
-    user=User.delete(data)
+    User.delete(data)
     return redirect("/users")
 
 @app.route('/users/<int:id>/edit')
