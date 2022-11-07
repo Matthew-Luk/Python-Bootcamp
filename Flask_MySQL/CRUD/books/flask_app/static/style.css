@@ -8,6 +8,10 @@
     display: flex;
 }
 
+.header{
+    margin-bottom: 30px;
+}
+
 .left{
     flex: 1;
 }
@@ -24,3 +28,51 @@
     padding: 10px 0px 10px 15px;
 }
 
+.left form{
+    display: flex;
+}
+
+.authors_form_left, .books_form_left{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.authors_form_right, .books_form_right{
+    display: flex;
+    flex-direction: column;
+}
+
+#authors_form_btn, #books_form_btn{
+    margin-top: 10px;
+    width: 80px;
+}
+
+#books_title_input{
+    margin-bottom: 10px;
+}
+
+#books_title_label{
+    margin-bottom: 15px;
+}
+
+.author_show_form{
+    display: flex;
+}
+
+.author_show_form_right{
+    display: flex;
+    flex-direction: column;
+}
+
+.author_show_form select{
+margin-bottom: 10px;
+}
+
+.author_show_form_left{
+    margin-right: 20px;
+}
+
+#author_show_form_right_btn{
+    width: 80px;
+}
