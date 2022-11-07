@@ -8,7 +8,7 @@ class Author:
         self.name = data['name']
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
-        self.fav_books = []
+        self.favorite_books = []
 
     @classmethod
     def save(cls,data):
@@ -28,5 +28,17 @@ class Author:
     def get_by_id(cls,data):
         query = "SELECT * FROM authors WHERE id = %(id)s"
         results = connectToMySQL(cls.db).query_db(query,data)
-        print(results)
-        return results
+        if len(results) < 1:
+            return False
+        row = results[0]
+        author = cls(row)
+        return author
+
+    @classmethod
+    def add_to_favorites(cls,data):
+        query = "INSERT INTO favorites(author_id,book_id) VALUES(%(author_id)s,%(book_id)s);"
+        return connectToMySQL(cls.db).query_db(query,data)
+
+    @classmethod
+    def favorite_books(cls,data):
+        pass
