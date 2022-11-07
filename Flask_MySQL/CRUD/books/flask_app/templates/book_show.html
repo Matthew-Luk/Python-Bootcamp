@@ -9,6 +9,30 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
+    <div class="container">
+        <div class="left">
+            <div class="header">
+                <h1>Title: {{book.title}}</h1>
+            </div>
+        </div>
+        <div class="right">
+            <div class="header">
+                <h1>Add Book's Favorite</h1>
+            </div>
+            <form class="book_show_form" action="">
+                <div class="book_show_form_left">
+                    <label for="author">Author: </label>
+                </div>
+                <div class="book_show_form_right">
+                    <select name="" id="">
+                        {%for i in all_authors%}
+                        <option value="{{i.name}}">{{i.name}}</option>
+                        {%endfor%}
+                    </select>
+                    <input type="submit" value="Add" id="book_show_form_right_btn">
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
