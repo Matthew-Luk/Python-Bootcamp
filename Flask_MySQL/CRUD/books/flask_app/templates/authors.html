@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="header">
+                <h1>New Author</h1>
+            </div>
+            <form action="/create_author" method="POST">
+                <div class="authors_form_left">
+                    <label for="name">Name: </label>
+                </div>
+                <div class="authors_form_right">
+                    <input type="text" name="name">
+                    <input id="authors_form_btn" type="submit" value="Create">
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <div class="header">
+                <h1>All Authors</h1>
+            </div>
+            <div class="right_content">
+                {%for i in all_authors%}
+                    <a href="/author_show/{{i.id}}">{{i.name}}</a>
+                {%endfor%}
+            </div>
+            <a href="/add_book">Add Book</a>
+        </div>
+    </div>
+</body>
+</html>
