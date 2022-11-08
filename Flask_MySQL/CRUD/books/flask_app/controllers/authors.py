@@ -19,7 +19,8 @@ def create_author():
 @app.route("/author_show/<int:id>")
 def author_show(id):
     data = {
-        "id":id
+        "id":id,
+        "author_id":id
     }
     return render_template("author_show.html", author = Author.get_by_id(data), all_books = Book.get_all())
 
