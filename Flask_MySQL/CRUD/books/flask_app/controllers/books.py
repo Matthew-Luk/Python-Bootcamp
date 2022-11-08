@@ -16,6 +16,7 @@ def add_book_submit():
 @app.route("/book_show/<int:id>")
 def book_show(id):
     data = {
-        "id":id
+        "id":id,
+        "book_id":id
     }
     return render_template("book_show.html", book = Book.get_by_id(data), all_authors = Author.get_all())
