@@ -14,6 +14,11 @@
             <div class="header">
                 <h1>Title: {{book.title}}</h1>
             </div>
+            <div>
+                {%for author in book.authors_who_favorited%}
+                    <p>{{author.name}}</p>
+                {%endfor%}
+            </div>
         </div>
         <div class="right">
             <div class="header">
