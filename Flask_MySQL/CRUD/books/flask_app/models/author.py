@@ -28,17 +28,18 @@ class Author:
     def get_by_id(cls,data):
         query = "SELECT * FROM authors WHERE id = %(id)s"
         results = connectToMySQL(cls.db).query_db(query,data)
+        print(f"Here are the results: {results}")
         if len(results) < 1:
             return False
         row = results[0]
         author = cls(row)
+        query2 = "SELECT * FROM books JOIN favorites on books.id = book_id WHERE author_id = %(author_id)s;"
+        results2 = connectToMySQL(cls.db).query_db(query2,data)
+        for i in results2:
+            author.favorite_books.append(book.Book(i))
         return author
 
     @classmethod
     def add_to_favorites(cls,data):
         query = "INSERT INTO favorites(author_id,book_id) VALUES(%(author_id)s,%(book_id)s);"
         return connectToMySQL(cls.db).query_db(query,data)
-
-    @classmethod
-    def favorite_books(cls,data):
-        pass
