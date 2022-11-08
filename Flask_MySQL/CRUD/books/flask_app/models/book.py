@@ -33,8 +33,8 @@ class Book:
             return False
         row = results[0]
         book = cls(row)
+        query2 = "SELECT * FROM authors JOIN favorites on authors.id = author_id WHERE book_id = %(book_id)s;"
+        results2 = connectToMySQL(cls.db).query_db(query2,data)
+        for i in results2:
+            book.authors_who_favorited.append(author.Author(i))
         return book
-
-    @classmethod
-    def authors_who_favorited():
-        pass
