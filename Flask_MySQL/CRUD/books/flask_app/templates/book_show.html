@@ -15,23 +15,26 @@
                 <h1>Title: {{book.title}}</h1>
             </div>
             <div>
+                <h3>Favorited by:</h3>
                 {%for author in book.authors_who_favorited%}
-                    <p>{{author.name}}</p>
+                    <p id="author_names">{{author.name}}</p>
                 {%endfor%}
             </div>
+            <a href="/">Home</a>
         </div>
         <div class="right">
             <div class="header">
                 <h1>Add Book's Favorite</h1>
             </div>
-            <form class="book_show_form" action="">
+            <form class="book_show_form" action="/add_to_authors_favorite" method="POST">
                 <div class="book_show_form_left">
                     <label for="author">Author: </label>
+                    <input type="hidden" name="book_id" value="{{book.id}}">
                 </div>
                 <div class="book_show_form_right">
-                    <select name="" id="">
+                    <select name="author_id">
                         {%for i in all_authors%}
-                        <option value="{{i.name}}">{{i.name}}</option>
+                        <option value="{{i.id}}">{{i.name}}</option>
                         {%endfor%}
                     </select>
                     <input type="submit" value="Add" id="book_show_form_right_btn">
