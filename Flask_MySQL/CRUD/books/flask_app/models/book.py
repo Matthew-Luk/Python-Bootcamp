@@ -38,3 +38,8 @@ class Book:
         for i in results2:
             book.authors_who_favorited.append(author.Author(i))
         return book
+
+    @classmethod
+    def add_to_favorites(cls,data):
+        query = "INSERT INTO favorites(author_id,book_id) VALUES(%(author_id)s,%(book_id)s);"
+        return connectToMySQL(cls.db).query_db(query,data)
