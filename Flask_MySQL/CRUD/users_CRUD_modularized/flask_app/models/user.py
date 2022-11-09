@@ -27,7 +27,8 @@ class User:
     @classmethod
     def save(cls, data):
         query = "INSERT INTO users ( first_name , last_name , email , created_at, updated_at ) VALUES ( %(first_name)s , %(last_name)s , %(email)s , NOW() , NOW() );"
-        return connectToMySQL('users').query_db( query, data )
+        user_id = connectToMySQL('users').query_db( query, data )
+        return user_id
 
     @classmethod
     def delete(cls,data):
