@@ -26,5 +26,8 @@ def author_show(id):
 
 @app.route("/add_favorite_book", methods=["POST"])
 def add_favorite_book():
+    data = {
+        "id":request.form["author_id"]
+    }
     Author.add_to_favorites(request.form)
-    return redirect('/')
+    return redirect(f'/author_show/{data["id"]}')
