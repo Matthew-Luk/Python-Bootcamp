@@ -28,7 +28,6 @@ class Author:
     def get_by_id(cls,data):
         query = "SELECT * FROM authors WHERE id = %(id)s"
         results = connectToMySQL(cls.db).query_db(query,data)
-        print(f"Here are the results: {results}")
         if len(results) < 1:
             return False
         row = results[0]
