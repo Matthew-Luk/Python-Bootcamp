@@ -5,26 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <div class="content2">
-            {%with messages = get_flashed_messages()%}
-                {%if messages%}
-                <h2>FLASH!!</h2>
-                    {%for message in messages%}
-                        <p>{{message}}</p>
-                    {%endfor%}
-                {%endif%}
-            {%endwith%}
-            <h1>The email address you entered was valid! Thank you!</h1>
-            <h2>Emails entered:</h2>
-            <div>
-                {%for i in emails%}
-                <p>{{i.email_address}} {{i.created_at}} <a href="/success/delete/{{i.id}}">Delete</a></p>
-                {%endfor%}
+        <div class="content">
+            <div class="header">
+                <h1>All Users</h1>
+                <a id="home_btn" href="/">+ Add a User</a>
             </div>
+            <table class="table">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+                {%for i in all_users%}
+                <tr>
+                    <td>{{i.first_name}} {{i.last_name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.created_at}}</td>
+                    <td><a href="/success/delete/{{i.id}}">Delete</a></td>
+                </tr>
+                {%endfor%}
+            </table>
         </div>
     </div>
 </body>
