@@ -20,3 +20,11 @@ def book_show(id):
         "book_id":id
     }
     return render_template("book_show.html", book = Book.get_by_id(data), all_authors = Author.get_all())
+
+@app.route("/add_to_authors_favorite", methods=["POST"])
+def add_to_authors_favorite():
+    data = {
+        "id":request.form["book_id"]
+    }
+    Book.add_to_favorites(request.form)
+    return redirect(f'/book_show/{data["id"]}')
