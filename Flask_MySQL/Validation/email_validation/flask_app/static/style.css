@@ -5,15 +5,45 @@
 
 .container{
     display: flex;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
 }
 
 .content{
     display: flex;
-    justify-content: center;
-    flex: 1;
+    flex-direction: column;
     margin-top: 100px;
+    width: 600px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#home_btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.form_input{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_input input{
+    width: 400px;
+}
+
+#submit_btn{
+    margin-top: 10px;
+    width: 90px;
+    background-color: #0b6cfd;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    height: 35px;
 }
 
 .content2{
@@ -22,4 +52,8 @@
     align-items: center;
     flex: 1;
     margin-top: 100px;
+}
+
+.flash{
+    color: red;
 }
