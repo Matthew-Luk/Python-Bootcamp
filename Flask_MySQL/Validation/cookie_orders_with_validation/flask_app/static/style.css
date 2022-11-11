@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    margin-top: 30px;
+}
+
+.header2{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#top_href{
+    display: flex;
+    align-items: flex-end;
+}
+
+.order_form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.order_form div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.order_form div input{
+    width: 300px;
+}
+
+#log_btn{
+    width: 80px;
+}
+
+table{
+    border: 2px solid black;
+}
+
+.flash_messages{
+    color: red;
+}
