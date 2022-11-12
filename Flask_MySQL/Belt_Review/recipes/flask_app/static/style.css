@@ -1,0 +1,63 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    margin-top: 35px;
+}
+
+#login_and_reg{
+    display:flex;
+    justify-content:space-around;
+}
+
+#login_and_reg_header{
+    color: rebeccapurple;
+    margin-left: 100px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+}
+
+.header2{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+#logout_btn{
+    margin-left: 50px;
+}
+
+#all_recipes_table{
+    border: 2px solid black;
+}
+
+#create_recipe_input{
+    width: 50%;
+}
+
+.btn{
+    background-color: #2b78e4;
+    color: white;
+    width: 100px;
+}
+
+.flash{
+    color: red;
+}
+
+.header3{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.view_content{
+    border: 2px solid black;
+    padding: 15px;
+}
