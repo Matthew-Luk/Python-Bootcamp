@@ -5,55 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wall</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="hleft">Coding Dojo Wall</div>
-            <div class="hright">
-                <div>
-                    <p>Welcome, {{user.first_name}}</p>
-                </div>
-                <div>
-                    <a href="/logout">Logout</a>
-                </div>
+            <div class="header_left">
+                <h3>Coding Dojo Wall</h3>
+            </div>
+            <div class="header_right">
+                <h3>Welcome, {{user.first_name}}</h3>
+                <a href="/logout">Logout</a>
             </div>
         </div>
         <div class="post">
             <form action="/dashboard/post" method="POST">
-                <div>
+                <div class="form-group">
                     <label for="content">Whats on your mind? Create a post:</label>
+                    {%with messages = get_flashed_messages()%}
+                        {%if messages%}
+                            {%for message in messages%}
+                                <p class="flash">{{message}}</p>
+                            {%endfor%}
+                        {%endif%}
+                    {%endwith%}
+                    <textarea class="form-control" name="content" columns="10" rows="5"></textarea>
                 </div>
-                {%with messages = get_flashed_messages()%}
-                    {%if messages%}
-                        {%for message in messages%}
-                            <p>{{message}}</p>
-                        {%endfor%}
-                    {%endif%}
-                {%endwith%}
-                <div>
-                    <textarea name="content"cols="30" rows="10"></textarea>
+                <div id="publish_btn">
+                    <input type="submit" value="publish">
                 </div>
-                <input type="submit" value="Publish">
             </form>
         </div>
         <div class="wall">
-            <p>All Community Posts</p>
+            <h4>All Community Posts</h4>
             {%for i in all_posts%}
-                <div class="posted_message">
-                    <div>
-                        <p>{{i[0].first_name}} - {{i[0].created_at}}</p>
+                <div>
+                    <div id="message_name">
+                        <strong>{{i[0].first_name}} - {{i[0].created_at}}</strong>
                     </div>
                     <div class="message">
-                        <p>{{i[1].content}}&nbsp;</p>
-                        {%print(session_id)%}
-                        {%print(i[0].id)%}
-                        {%print(i[1].id)%}
+                        <p id="message_content">{{i[1].content}}</p>
                         <!-- i[0] == user -->
                         <!-- i[1] == post -->
                         {%if session_id == i[0].id%}
-                        <a href="/delete/{{i[1].id}}"> Delete</a>
+                        <button id="delete_btn"><a href="/delete/{{i[1].id}}"> Delete</a></button>
                         {%endif%}
                     </div>
                 </div>
