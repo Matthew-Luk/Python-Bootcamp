@@ -30,7 +30,7 @@ def view_recipe(id):
     data2 = {
         "id":id
     }
-    return render_template("view.html", user=User.get_by_id(data), recipe=Recipe.get_by_id(data2), recipes=Recipe.recipes_with_users())
+    return render_template("view.html", user=User.get_by_id(data), recipe=Recipe.get_by_id(data2))
 
 @app.route("/dashboard/edit/<int:id>")
 def edit_recipe(id):
