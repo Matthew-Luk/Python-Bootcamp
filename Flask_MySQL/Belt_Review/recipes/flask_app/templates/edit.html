@@ -4,44 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Recipe</title>
+    <title>Recipe Share</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Edit Recipe</h1>
-    <a href="/dashboard">Back to Recipes</a>
-    <a href="/logout">Logout</a>
-    {%with messages = get_flashed_messages(category_filter=["create_recipe"])%}
-        {%if messages%}
-            {%for message in messages%}
-                <p>{{message}}</p>
-            {%endfor%}
-        {%endif%}
-    {%endwith%}
-    <form action="/dashboard/create_recipe/add" method = "POST">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" name="name" value="{{recipe.name}}">
+    <div class="container">
+        <div class="header2">
+            <h2>Edit Recipe</h2>
+            <div>
+                <a href="/dashboard">Back to Recipes</a>
+                <a id="logout_btn" href="/logout">Logout</a>
+            </div>
         </div>
-        <div>
-            <label for="description">Description:</label>
-            <textarea type="textarea" name="description" value="{{recipe.description}}"></textarea>
-        </div>
-        <div>
-            <label for="instruction">Instruction:</label>
-            <textarea type="textarea" name="instruction" value="{{recipe.instruction}}"></textarea>
-        </div>
-        <div>
-            <label for="date_cooked">Date Cooked/Made:</label>
-            <input type="date" name="date_cooked" value="{{recipe.date_cooked}}">
-        </div>
-        <label for="under">Under 30 minutes?</label>
-        <div>
-            <label for="yes">Yes:</label>
-            <input type="checkbox" name="under" value="Yes">
-            <label for="no">No:</label>
-            <input type="checkbox" name="under" value="No">
-        </div>
-        <input type="submit" name="Submit">
-    </form>
+        {%with messages = get_flashed_messages(category_filter=["create_recipe"])%}
+            {%if messages%}
+                {%for message in messages%}
+                    <p class="flash">{{message}}</p>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <form action="/dashboard/create_recipe/add" method = "POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input id="create_recipe_input" type="text" name="name" value="{{recipe.name}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="create_recipe_input" type="textarea" name="description" class="form-control">{{recipe.description}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="instruction">Instruction:</label>
+                <textarea id="create_recipe_input" type="textarea" name="instruction" class="form-control">{{recipe.instruction}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="date_cooked">Date Cooked/Made:</label>
+                <input id="create_recipe_input" type="date" name="date_cooked" value="{{recipe.date_cooked}}" class="form-control">
+            </div>
+            <label for="under">Under 30 minutes?</label>
+            <div class="form-group">
+                <label for="yes">Yes:</label>
+                <input type="checkbox" name="under" value="Yes">
+                <label for="no">No:</label>
+                <input type="checkbox" name="under" value="No">
+            </div>
+            <input class="btn" type="submit" name="Submit">
+        </form>
+    </div>
 </body>
 </html>
