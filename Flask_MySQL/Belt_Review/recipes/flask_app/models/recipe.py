@@ -42,12 +42,23 @@ class Recipe:
 
     @classmethod
     def get_by_id(cls,data):
-        query = "SELECT * FROM recipes WHERE id = %(id)s;"
+        query = "SELECT * FROM recipes JOIN users ON users.id = user_id WHERE recipes.id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query,data)
         if len(results) < 1:
             return False
         row = results[0]
         recipe = cls(row)
+        i = {
+            "id":row["users.id"],
+            "first_name":row["first_name"],
+            "last_name":row["last_name"],
+            "email":row["email"],
+            "password":row["password"],
+            "created_at":row["users.created_at"],
+            "updated_at":row["users.updated_at"]
+        }
+        recipe.users = User(i)
+        print(row)
         return recipe
 
     @staticmethod
