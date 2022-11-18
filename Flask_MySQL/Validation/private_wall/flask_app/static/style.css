@@ -1,0 +1,44 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    margin-top: 35px;
+}
+
+#login_and_reg{
+    display:flex;
+    justify-content:space-around;
+}
+
+.btn{
+    background-color: #2b78e4;
+    color: white;
+    width: 100px;
+}
+
+.flash{
+    color: red;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_left{
+    flex: 1;
+}
+
+.header_right{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+#logout_btn{
+    display: flex;
+    align-items: center;
+}
